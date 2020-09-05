@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  server:
+    container_name: todolist
+    build: '.'
+    command: npm run dev
+    environment:
+      NODE_ENV: dev
+      DEBUG: todolist:*
+    depends_on:
+      - db
+    links:
+      - db
+    ports:
+      - '3000:3000'
+      - '9229:9229'
+    volumes:
+      - .:/todolist/
+
+  db:
+    image: 'mongo'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: MongoDB2020!
+    container_name: MONGODB
+    ports:
+      - '27017:27017'
+    volumes:
+      - /tmp/Volumes:/data/db
