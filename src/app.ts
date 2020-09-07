@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import debug from 'debug';
-// import api from './routes/index';
+import routes from './routes';
 
 const app = express();
 const log = debug('todolist:app');
@@ -45,7 +45,7 @@ app.use(
   },
 );
 
-// app.use('/api', api);
+app.use('/api', routes);
 
 app.use(
   (req: express.Request, res: express.Response, next: express.NextFunction) => {

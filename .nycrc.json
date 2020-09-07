@@ -8,6 +8,6 @@
   "statements": 80,
   "excludeNodeModules": true,
   "include": ["src/**/*"],
-  "exclude": ["specs/**/*.spec.ts"],
+  "exclude": ["specs/**/*.spec.ts", "src/index.ts", "src/app.ts"],
   "reporter": ["text", "lcov"]
 }

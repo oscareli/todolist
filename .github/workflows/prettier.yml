@@ -1,0 +1,23 @@
+name: prettier
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      
+      - name: Install deps
+        run: npm i
+      
+      - name: Prettier
+        run: npm run prettier:check
